@@ -1,0 +1,18 @@
+﻿@page "/"
+@using CommunityToolkit.Maui.Views;
+@using PopupApp.XamlPage;
+
+<div class="d-flex justify-content-center d-flex align-items-center" style="height: 100vh !important;">
+    <button class="btn btn-primary " @onclick="OpenPopup">Open popup</button>
+</div>
+
+
+@code {
+    private int currentCount = 0;
+
+    private void OpenPopup()
+    {
+        var test = App.Current.MainPage.ShowPopupAsync(new PopupPage());
+    }
+}
+
