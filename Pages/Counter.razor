@@ -9,10 +9,17 @@
 
 @code {
     private int currentCount = 0;
+    private object result;
 
-    private void OpenPopup()
+    private async void OpenPopup()
     {
-        var test = App.Current.MainPage.ShowPopupAsync(new PopupPage());
+        MessagingCenter.Subscribe<NewPage1>(this, "WORK", (sender) =>
+        {
+            // Do something whenever the "Hi" message is received
+            var amigos = sender.pruebita;
+        });
+
+        await App.Current.MainPage.Navigation.PushModalAsync(new NewPage1());
     }
 }
 
